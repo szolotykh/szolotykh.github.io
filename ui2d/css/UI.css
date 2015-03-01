@@ -1,0 +1,39 @@
+.ui-context{
+	position: relative;
+}
+
+.ui-line{
+	background-color: #000000;
+	height: 2px;
+	
+	position: absolute;
+}
+
+.ui-callout-body{
+	font-size: 24px;
+	padding-left: 12px;
+	padding-right: 12px;
+	padding-top: 5px;
+	padding-bottom: 5px;
+	
+	border-width: 2px;
+	border-color: #222222;
+	border-style: solid;
+	
+	background-color: #85D2CB;
+	position: absolute
+}
+.ui-path{
+	position: absolute;
+}
+
+.ui-frame{
+	border-width: 2px;
+	border-color: #85D2CB;
+	border-style: solid;
+	position: absolute
+}
+
+.ui-element{
+	position: absolute;
+}
