@@ -25,54 +25,62 @@ if (typeof jQuery === 'undefined') { throw new Error('2D-UI requires jQuery') }
 		return this;
 	};
 	// UI Callout
-	$.fn.UICallout = function(x,y, px, py, options){
+	$.fn.UICallout = function(options){
+		
+		
 		// Default options
-		var defaultOptions = {
-			base: true,
-			baseOffset: 20,
-			oreintation: "bottom"
-		};
-		options = jQuery.extend(defaultOptions, options);
-
-		var callout = this;
-		callout.addClass("ui-callout-body").addClass();
-
-		callout.css({
+		options = options || {};
+		var x = options.x||1;
+		var y = options.y||1;
+		var px = options.px||200;
+		var py = options.py||200;
+		var w = options.w||100;
+		var h = options.h||41;
+		var text = options.text;
+		var base = (options.base==='undefined')?true:options.base;
+		var baseOffset = options.baseOffset||20;
+		var oreintation = options.oreintation||"bottom";
+		
+		this.addClass("ui-callout-body");
+		//w = w - parseInt(this.css('padding-left')) - parseInt(this.css('padding-right'));
+		//h = h - parseInt(this.css('padding-top')) - parseInt(this.css('padding-bottom'));
+		console.log(w+' x '+h);
+		this.css({
 			"top": y + "px",
-			"left": x + "px"
+			"left": x + "px",
+			"width": (w - 24) + 'px',
+			"height": (h - 10)  + 'px'
 		});
-		// Waiting for div to updates
-		setTimeout(function(){
-			var w = callout.outerWidth();
-			var h = callout.outerHeight();
-			var xb = xp = w/2;
-			var yb = yp = h/2;
-			switch(options.oreintation){
-				case "bottom":
-					yb = h - 4;
-					yp = h + options.baseOffset;
-				break;
-				case "top":
-					yb = -2;
-					yp = -options.baseOffset;
-				break;
-				case "left":
-					xb = -2;
-					xp = -options.baseOffset;
-				break;
-				case "right":
-					xb = w - 2;
-					xp = w + options.baseOffset;
-				break;
-			}
-			if(options.base){
-				$("<div>").UILine(xb, yb, xp, yp).addClass("ui-callout-pointer-base").appendTo(callout);
-			}else{
-				xp=xb;
-				yp=yb;
-			}
-			$("<div>").UILine(xp, yp ,px-x, py-y).addClass("ui-callout-pointer").appendTo(callout);
-		}, 10);
+
+		$("<div>").addClass('ui-callout-text').html(text).appendTo(this);
+		
+		var xb = xp = w/2;
+		var yb = yp = h/2;
+		switch(oreintation){
+			case "bottom":
+				yb = h;
+				yp = h + baseOffset;
+			break;
+			case "top":
+				yb = 0;
+				yp = -baseOffset;
+			break;
+			case "left":
+				xb = 0;
+				xp = -baseOffset;
+			break;
+			case "right":
+				xb = w;
+				xp = w + baseOffset;
+			break;
+		}
+		if(base){
+			$("<div>").UILine(xb, yb, xp, yp).addClass("ui-callout-pointer-base").appendTo(this);
+		}else{
+			xp=xb;
+			yp=yb;
+		}
+		$("<div>").UILine(xp, yp ,px-x, py-y).addClass("ui-callout-pointer").appendTo($(this));
 		return this;
 	};
 	
