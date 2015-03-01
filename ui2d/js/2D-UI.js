@@ -72,7 +72,7 @@ if (typeof jQuery === 'undefined') { throw new Error('2D-UI requires jQuery') }
 				yp=yb;
 			}
 			$("<div>").UILine(xp, yp ,px-x, py-y).addClass("ui-callout-pointer").appendTo(callout);
-		}, 2);
+		}, 10);
 		return this;
 	};
 	
