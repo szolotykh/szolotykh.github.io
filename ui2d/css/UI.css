@@ -36,7 +36,12 @@
 	border-width: 2px;
 	border-color: #85D2CB;
 	border-style: solid;
-	position: absolute
+	position: absolute;
+}
+.ui-frame-lable{
+	top: -18px;
+	color: #85D2CB;
+	position: absolute;
 }
 
 .ui-element{

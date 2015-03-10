@@ -7,7 +7,7 @@ if (typeof jQuery === 'undefined') { throw new Error('2D-UI requires jQuery') }
 
 (function($){
 	// UI Context
-	$.fn.UIContext = function(container){
+	$.fn.UIContext = function(){
 		this.addClass("ui-context");
 		return this;
 	};
@@ -26,7 +26,6 @@ if (typeof jQuery === 'undefined') { throw new Error('2D-UI requires jQuery') }
 	};
 	// UI Callout
 	$.fn.UICallout = function(options){
-		
 		
 		// Default options
 		options = options || {};
@@ -98,13 +97,23 @@ if (typeof jQuery === 'undefined') { throw new Error('2D-UI requires jQuery') }
 	};
 	
 	// Frame
-	$.fn.UIFrame = function(x, y, width, height){
+	$.fn.UIFrame = function(options){
+		options = options||{};
+		options.x = options.x||1;
+		options.y = options.y||1;
+		options.width = options.width||100;
+		options.height = options.height||100;
+		options.lable = options.lable||"";
+		
 		this.addClass("ui-frame").css({
-			"top": y + "px",
-			"left": x + "px",
-			"width": width + "px",
-			"height": height + "px"
+			"top": options.y + "px",
+			"left": options.x + "px",
+			"width": options.width + "px",
+			"height": options.height + "px"
 		});
+		if(options.lable != ''){
+			$('<div>').addClass('ui-frame-lable').html(options.lable).appendTo(this);
+		}
 		return this;
 	};
 	
