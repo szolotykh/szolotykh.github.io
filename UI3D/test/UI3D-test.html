@@ -1,0 +1,130 @@
+<html>
+	<head>
+		<title>UI3D Test</title>
+		<style>
+			body { margin: 0; }
+			#container{ position: relative; }
+			#workspace{ position: absolute;}
+		</style>
+		<script src="three.min.js"></script>
+		<script src="../src/UI3D.js"></script>
+		<script src="../src/UI3D/DescriptionCallout.js"></script>
+		<script>
+			function init(){
+				my3DInt = new UI3D.Context({width:423, height:317});
+				
+				//var cube = new UI3D.Cube();
+				//cube.onClick=function(){
+				//	console.log('Cube!');
+				//}
+				//my3DInt.add( cube );
+				var GRID = false;
+				if(GRID){
+					for(var i=-2; i<=2; i++){
+						for(var j=-2; j<=2; j++){
+							var cube = new UI3D.Cube()
+							cube.scale.set(0.2, 0.2, 0.2);
+							cube.position.set(i,0,j);
+							my3DInt.add(cube);
+						}
+					}
+				}
+				// ---- Bowl ----
+				var cBowl = new UI3D.Callout({
+					text:"Bowl",
+					fontSize:30,
+					textAlign: "center",
+					padding:12,
+					paddingTop:1,
+					borderColor: "#AA5533",
+					backgroundColor: "#DDFFEE",
+					margin:20, 
+					pointerSide:"bottom",
+					pointerStart:0.5,
+					pointerEnd: 0.5,
+					pointerWidth: 0.3
+				});
+				cBowl.rotation.set(-Math.PI/6, 0, 0);
+				cBowl.position.set(0.3,0, 0.2);
+				cBowl.dScale = 0.015;
+				cBowl.aScale = 0.015;
+				cBowl.scale.set(cBowl.aScale, cBowl.aScale, 1);
+				cBowl.onMouseEnter=function(){
+					this.dScale = 0.025;
+				}
+				cBowl.onMouseLeave=function(){
+					this.dScale = 0.015;
+				}
+				my3DInt.add( cBowl );
+				// ---- Glass ----
+				var cGlass = new UI3D.Callout({
+					text:"Glass",
+					fontSize:30,
+					textAlign: "center",
+					padding:12,
+					paddingTop:1,
+					borderColor: "#AA5533",
+					backgroundColor: "#DDFFEE",
+					margin:20, 
+					pointerSide:"bottom",
+					pointerStart:0.5,
+					pointerEnd: 0.5,
+					pointerWidth: 0.3
+				});
+				cGlass.rotation.set(-Math.PI/6, 0, 0);
+				cGlass.position.set(2,0, -1.5);
+				cGlass.dScale = 0.015;
+				cGlass.aScale = 0.015;
+				cGlass.scale.set(cBowl.aScale, cBowl.aScale, 1);
+				cGlass.onMouseEnter=function(){
+					this.dScale = 0.025;
+				}
+				cGlass.onMouseLeave=function(){
+					this.dScale = 0.015;
+				}
+				my3DInt.add( cGlass );				
+				// ---- Transform matrix ----
+				var transform = new THREE.Matrix4();
+				var m1 = new THREE.Matrix4();
+				m1.makeRotationX(Math.PI/3);
+				var m2 = new THREE.Matrix4();
+				m2.makeTranslation(0.5, 0, -4.75);
+				transform.multiplyMatrices( m2, m1 );
+				my3DInt.setTransform(transform);
+				
+				//my3DInt.camera.position.z = 5;
+				document.getElementById('container').appendChild( my3DInt.renderer.domElement );
+				my3DInt.renderer.domElement.style.position = 'absolute';
+				
+				var render = function () {
+					requestAnimationFrame( render );
+					if(cBowl.dScale>cBowl.aScale){
+						cBowl.aScale += 0.001;
+					}
+					if(cBowl.dScale<cBowl.aScale){
+						cBowl.aScale -= 0.001;
+					}
+					cBowl.scale.set(cBowl.aScale, cBowl.aScale, 1);
+					
+					if(cGlass.dScale > cGlass.aScale){
+						cGlass.aScale += 0.001;
+					}
+					if(cGlass.dScale < cGlass.aScale){
+						cGlass.aScale -= 0.001;
+					}
+					cGlass.scale.set(cGlass.aScale, cGlass.aScale, 1);
+					//cube.rotation.x += 0.01;
+					//cube.rotation.y += 0.01;
+
+					my3DInt.render();
+				};
+				render();
+			}
+		</script>
+	</head>
+	<body onload = "init();">
+		<div id="container">
+			<img id = "workspace" src = "img/workspace.png"></img>
+		</div>
+	</body>
+</html>
