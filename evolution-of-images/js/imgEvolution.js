@@ -5,7 +5,7 @@
 
 var generation = 0;
 var goalGeneration=0;
-var populationSize = 160;
+var populationSize = 80;
 var updating = false;
 var aveSimilarity=0;
 
