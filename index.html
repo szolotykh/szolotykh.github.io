@@ -6,6 +6,9 @@
 <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
 <link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Roboto'>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<script src="libs/jquery-3.6.0.slim.min.js"></script>
+<script src="resumedata.js"></script>
+<script src="main.js"></script>
 <style>
 html,body,h1,h2,h3,h4,h5,h6 {font-family: "Roboto", sans-serif}
 </style>
@@ -25,10 +28,10 @@ html,body,h1,h2,h3,h4,h5,h6 {font-family: "Roboto", sans-serif}
           <img src="./avatar.png" style="width:100%" alt="Avatar">
         </div>
         <div class="w3-container">
-          <h2><b>Sergey Zolotykh</b></h2>
+          <h2 id="ResumeName"></h2>
           
-          <p><i class="fa fa-briefcase fa-fw w3-margin-right w3-large w3-text-teal"></i>Software Developer</p>
-          <p><i class="fa fa-home fa-fw w3-margin-right w3-large w3-text-teal"></i>Portland, ME</p>
+          <p><i class="fa fa-briefcase fa-fw w3-margin-right w3-large w3-text-teal"></i>Software Engineer</p>
+          <p><i class="fa fa-home fa-fw w3-margin-right w3-large w3-text-teal"></i>Redmond, WA</p>
           <p><i class="fa fa-envelope fa-fw w3-margin-right w3-large w3-text-teal"></i>szolotykh88@gmail.com</p>
           <hr>
 
@@ -56,88 +59,9 @@ html,body,h1,h2,h3,h4,h5,h6 {font-family: "Roboto", sans-serif}
           <hr>
 
           <p class="w3-large"><b>Skills</b></p>
-          <p><b>Programming</b></p>
-          <div class="w3-row">
-            <div class="w3-container w3-cell s6">
-              <div class="w3-container">C/C++</div>
-              <div class="w3-container">C#</div>
-              <div class="w3-container s4">JavaScript</div>
-            </div>
-            <div class="w3-container w3-cell s6">
-              <div class="w3-container">Python</div>
-              <div class="w3-container">Development on Linux</div>
-            </div>
-          </div>
-          <hr>
-          <p><b>Networking</b></p>
-          <div class="w3-container w3-cell s6">
-            <div class="w3-container">Socket programming</div>
-            <div class="w3-container">MQTT</div>
-            <div class="w3-container s4">OPC UA</div>
-          </div>
-          <div class="w3-container w3-cell s6">
-            <div class="w3-container">REST</div>
-            <div class="w3-container">WebSocket</div>
-          </div>
-          <hr>
-          <p><b>Applications</b></p>
-          <div class="w3-row">
-            <div class="w3-cell s6 m6 l6">
-              <div class="w3-container">Wireshark</div>
-              <div class="w3-container">Postman</div>
-            </div>
-            <div class="w3-cell s6 m6 l6">
-              <div class="w3-container">Kubernetes</div>
-              <div class="w3-container">Fusion 360</div>
-            </div>
-          </div>
-          <hr>
-          <p><b>Robotics</b></p>
-          <div class="w3-container w3-cell s6">
-            <div class="w3-container">Particle</div>
-            <div class="w3-container">ROS</div>
-            <div class="w3-container s4">FANUC arms</div>
-          </div>
-          <div class="w3-container w3-cell s6">
-            <div class="w3-container">Arduino</div>
-            <div class="w3-container">TurtleBot</div>
-            <div class="w3-container">NXT</div>
-          </div>
-          <hr>
-          
-          <p><b>Hardware</b></p>
-          <div class="w3-container w3-cell s6">
-            <div class="w3-container">Parts Design</div>
-            <div class="w3-container">3D Printing</div>
-          </div>
-          <div class="w3-container w3-cell s6">
-            <div class="w3-container">Milling</div>
-          </div>
-          <hr>
-          
-          <p><b>Web-development</b></p>
-          <div class="w3-container w3-cell s6">
-            <div class="w3-container">React</div>
-            <div class="w3-container">MERN stack</div>
-          </div>
-          <div class="w3-container w3-cell s6">
-            <div class="w3-container">Express</div>
-          </div>
-          <hr>
-
-          <p><b>Mathematics</b></p>
-          <div class="w3-container w3-cell s6">
-            <div class="w3-container">Problem solving</div>
-          </div>
-          <div class="w3-container w3-cell s6">
-            <div class="w3-container">Data analysis</div>
-          </div>
-
-          <p class="w3-large w3-text-theme"><b>Languages</b></p>
-          <p><i class="fa fa-globe fa-fw w3-margin-right w3-text-teal w3-hover-opacity"></i>English</p>
-          <p><i class="fa fa-globe fa-fw w3-margin-right w3-text-teal w3-hover-opacity"></i>Russian</p>
-          <br>
+          <div id="ResumeSkils"></div>
         </div>
+        <br>
       </div><br>
 
     <!-- End Left Column -->
@@ -148,178 +72,17 @@ html,body,h1,h2,h3,h4,h5,h6 {font-family: "Roboto", sans-serif}
     
       <div class="w3-container w3-card w3-white w3-margin-bottom">
         <h2 class="w3-padding-16"><i class="fa fa-suitcase fa-fw w3-margin-right w3-xxlarge w3-text-teal"></i>Work Experience</h2>
-         <div class="w3-container">
-          <h5 class="w3-opacity"><b>SDE 2, Microsoft, Redmond, WA</b></h5>
-          <h6 class="w3-text-teal"><i class="fa fa-calendar fa-fw w3-margin-right"></i>August 2020 - <span class="w3-tag w3-teal w3-round">Present</span></h6>
-          <hr>
-        </div>
-        <div class="w3-container">
-          <h5 class="w3-opacity"><b>Software developer, PTC (Kepware Technologies), Portland, ME</b></h5>
-          <p> Developed industrial connectivity software and IoT solutions</p>
-          <h6 class="w3-text-teal"><i class="fa fa-calendar fa-fw w3-margin-right"></i>May 2015 - July 2020</h6>
-          <hr>
-        </div>
-        <div class="w3-container">
-          <h5 class="w3-opacity"><b>Mathematics tutor, SUNY Potsdam, Potsdam, NY</b></h5>
-          <p>Tutored mathematics for freshmen and sophomore students</p>
-          <h6 class="w3-text-teal"><i class="fa fa-calendar fa-fw w3-margin-right"></i>September 2011 – May 2012</h6>
-          <hr>
-        </div>
+        <div id="ResumeExperience"></div>
       </div>
 
       <div class="w3-container w3-card w3-white w3-margin-bottom">
         <h2 class="w3-padding-16"><i class="fa fa-certificate fa-fw w3-margin-right w3-xxlarge w3-text-teal"></i>Education</h2>
-        <div class="w3-container">
-          <h5 class="w3-opacity"><b>Worcester Polytechnic Institute</b></h5>
-          <p>Master of Science in Robotics Engineering</p>
-          <h6><i class="fa fa-calendar fa-fw w3-margin-right"></i>Worcester, MA. May 2015</h6>
-          <hr>
-        </div>
-        <div class="w3-container">
-          <h5 class="w3-opacity"><b>Worcester Polytechnic Institute</b></h5>
-          <p>Bachelor of Science in Robotics Engineering</p>
-          <h6><i class="fa fa-calendar fa-fw w3-margin-right"></i>Worcester, MA. May 2014</h6>
-          <hr>
-        </div>
-        <div class="w3-container">
-          <h5 class="w3-opacity"><b>The State University of New York at Potsdam </b></h5>
-          <p>Bachelor of Arts, Double Major in Mathematics and Geology, Successfully transferred credits from North-Caucasus State Technical University, Stavropol, Russia </p>
-          <h6><i class="fa fa-calendar fa-fw w3-margin-right"></i>Potsdam, NY. May 2012</h6><br>
-        </div>
+        <div id="ResumeEducation"></div>
       </div>
 
       <div class="w3-container w3-card w3-white w3-margin-bottom">
         <h2 class="w3-padding-16"><i class="fa fa-certificate fa-fw w3-margin-right w3-xxlarge w3-text-teal"></i>Projects</h2>
-        
-        <!-- Independent Project: Kinisi robotics platform -->
-        <div class="w3-container">
-          <h5 class="w3-opacity"><b>Independent Project: Kinisi robotics platform</b></h5> 
-          <div class="w3-twothird">
-            <p>Kinisi robotics platform is a mecanim wheels multipurpose platform. 
-              That can be used for variety of projects like telepresence robot or indoor goods transportations robots.</p>
-            <p>GitHub: <a href="https://github.com/szolotykh/Kinisi" target="_blank">https://github.com/szolotykh/Kinisi</a></p>
-            <h6><i class="fa fa-calendar fa-fw w3-margin-right"></i>Portland, ME. 2019-Present</h6>
-          </div>
-          <div class="w3-third w3-center">
-            <img src="kinisi_platform.png" width="180px" alt="model3">
-          </div>
-        </div>
-        <hr>
-        <!-- Independent Project: Kinisi Mecanum Wheels -->
-        <div class="w3-container">
-          <h5 class="w3-opacity"><b>Independent Project: Kinisi Mecanum Wheels</b></h5> 
-          <div class="w3-twothird">
-            <p>Kinisi wheels is a pair of left and right mecanum wheels. Designed specially to be made on 3D printer with out any support structures.</p>
-            <p>Model 1: <a href="https://www.thingiverse.com/thing:2801376" target="_blank">https://www.thingiverse.com/thing:2801376</a></p>
-            <p>Model 2: <a href="https://www.thingiverse.com/thing:2909508" target="_blank">https://www.thingiverse.com/thing:2909508</a></p>
-            <p>Model 3: <a href="https://www.thingiverse.com/thing:2974969" target="_blank">https://www.thingiverse.com/thing:2974969</a></p>
-            <h6><i class="fa fa-calendar fa-fw w3-margin-right"></i>Portland, ME. 2018-2019</h6>
-          </div>
-          <div class="w3-third w3-center">
-            <img src="model3.jpg" width="180px" alt="model3">
-          </div>
-        </div>
-        <hr>
-
-        <!-- Web Based Augmented Reality Robotics Interface -->
-        <div class="w3-container">
-          <h5 class="w3-opacity"><b>Web Based Augmented Reality Robotics Interface</b></h5>
-          <div class="w3-twothird">
-            <p>Developed web based augmented reality robotics interface to improve human robot interaction</p>
-            <p>GitHub: <a href="https://github.com/szolotykh/ar-robotics" target="_blank">https://github.com/szolotykh/ar-robotics</a></p>
-            <p>Video: <a href="https://youtu.be/rzH23gYKmqI" target="_blank">https://youtu.be/rzH23gYKmqI</a></p>
-            <h6><i class="fa fa-calendar fa-fw w3-margin-right"></i>WPI, Worcester, MA. May 2014</h6>
-          </div>
-          <div class="w3-third w3-center">
-            <img src="lego.png" width="180px" alt="lego">
-          </div>
-        </div>
-        <hr>
-        
-        <!-- Major Qualifying Project: Automated Tool Prep/Crib -->
-        <div class="w3-container">
-          <h5 class="w3-opacity"><b>Major Qualifying Project: Automated Tool Prep/Crib</b></h5>
-          <div class="w3-twothird">
-            <p>Designed robotics workcell with FANUC robotics arm to perform autonomous tool prep and crib</p>
-            <h6><i class="fa fa-calendar fa-fw w3-margin-right"></i>WPI, Worcester, MA. 2013 – 2015</h6>
-          </div>
-          <div class="w3-third"></div>
-        </div>
-        <hr>
-
-        <!-- Independent Project: Cyclops Robot -->
-        <div class="w3-container">
-          <h5 class="w3-opacity"><b>Independent Project: Cyclops Robot</b></h5>
-          <div class="w3-twothird">
-            <p>Build robot based on Micro-ATX motherboard and controlled by Windows or Linux program</p>
-            <p>Movement tests:<ul>
-              <li><a href="https://www.youtube.com/watch?v=Zbgs1EBExDc" target="_blank">Cyclops movement test #1</a></li>
-              <li><a href="https://www.youtube.com/watch?v=Po0rnHqEPX8" target="_blank">Cyclops movement test #2</a></li>
-            </ul>
-            </p>
-            <p>Head tests:<ul>
-            <li><a href="https://www.youtube.com/watch?v=2N1egn4Zpv8" target="_blank">Cyclops Head - Light Tracking</a></li>
-            <li><a href="https://www.youtube.com/watch?v=5y_fjLGZO30" target="_blank">Random movements of Cyclops head</a></li>
-            <li><a href="https://www.youtube.com/watch?v=k8q9G0vwBmE" target="_blank">Cyclops Head controling test</a></li>
-            </ul></p>
-            <h6><i class="fa fa-calendar fa-fw w3-margin-right"></i>Potsdam, NY / New York, NY / Worcester, MA, 2011 – 2018</h6>
-          </div>
-          <div class="w3-third w3-center">
-              <img src="cyclops.JPG" width="180px" alt="Cyclops">
-          </div>
-        </div>
-        <hr>
-
-        <!-- Independent Project: Evolution of an Images -->
-        <div class="w3-container">
-          <h5 class="w3-opacity"><b>Independent Project: Evolution of an Images</b></h5>
-          <div class="w3-twothird">
-          <p>Developed genetic algorithm that creates images from hereditary characteristics</p>
-          <p>Demo: <a href="http://szolotykh.github.io/evolution-of-images">http://szolotykh.github.io/evolution-of-images</a></p>
-          <p>GitHub: <a href="https://github.com/szolotykh/evolution-of-images">https://github.com/szolotykh/evolution-of-images</a></p>
-          <h6><i class="fa fa-calendar fa-fw w3-margin-right"></i>New York, NY, October 2008 – February 2014</h6>
-          </div>
-          <div class="w3-twothird"></div>
-        </div>
-        <hr>
-
-        <!-- Independent Project: Cosmos Fight Game -->
-        <div class="w3-container">
-          <h5 class="w3-opacity"><b>Independent Project: Cosmos Fight Game</b></h5>
-          <div class="w3-twothird">
-          <p>Developed browser action game on HTML5 Canvas and JavaScript</p>
-          <p>GitHub: <a href="https://github.com/vsreality/cosmos-fight">https://github.com/vsreality/cosmos-fight</a></p>
-          <h6><i class="fa fa-calendar fa-fw w3-margin-right"></i>Potsdam, NY, January 2012 – September 2012</h6>
-          </div>
-          <div class="w3-twothird"></div>
-        </div>
-        <hr>
-
-        <!-- Mechanization and Automatization of an Art Form -->
-        <div class="w3-container">
-          <h5 class="w3-opacity"><b>Mechanization and Automatization of an Art Form</b></h5>
-          <div class="w3-twothird">
-          <p>Build animated robotic face for art performance</p>
-          <p>Robotics eyes: <a href="https://www.youtube.com/watch?v=4SCHcwzVDds">https://www.youtube.com/watch?v=4SCHcwzVDds</a></p>
-          <p>Robotics jaw: <a href="https://www.youtube.com/watch?v=dDymgIGdzoA">https://www.youtube.com/watch?v=dDymgIGdzoA</a></p>
-          <p>Robotics skull: <a href="https://www.youtube.com/watch?v=yGXQ35xK124">https://www.youtube.com/watch?v=yGXQ35xK124</a></p>
-          <h6><i class="fa fa-calendar fa-fw w3-margin-right"></i>SUNY Potsdam, NY, January 2012 – May 2012</h6>
-          </div>
-          <div class="w3-twothird"></div>
-        </div>
-        <hr>
-
-        <!-- Independent Project: Client-Server-Client Video Transition System -->
-        <div class="w3-container">
-          <h5 class="w3-opacity"><b>Independent Project: Client-Server-Client Video Transition System</b></h5>
-          <div class="w3-twothird">
-          <p>Designed client and server programs for network video transmission</p>
-          <h6></h6><i class="fa fa-calendar fa-fw w3-margin-right"></i>New York, NY, August 2010 – May 2011</h6>
-          </div>
-          <div class="w3-twothird"></div>
-        </div>
-        <br>
-        <hr>
+        <div id="ResumeProjects">
       </div>
 
     <!-- End Right Column -->
