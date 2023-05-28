@@ -5,7 +5,7 @@ var ResumeSkils = [
     },
     {
       "category": "Networking",
-      "skils": ["Socket programming", "MQTT", "OPC UA", "REST", "WebSocket"]
+      "skils": ["Socket programming", "MQTT", "BACNet", "OPC UA", "REST", "WebSocket"]
     },
     {
       "category":"Applications",
@@ -70,6 +70,23 @@ var ResumeSkils = [
   ]
   
   var ResumeProjects = [
+    {
+      "name":"Independent Project: Kinisi motor controller",
+      "discription": "The Kinisi motor controller is engineered to regulate as many as four brushed DC motors. It utilizes an STM32 microcontroller at its core. The firmware of this device is designed to implement both velocity and position control systems.",
+      "links":[
+        {
+          "text":"GitHub Hardware",
+          "url":"https://github.com/szolotykh/kinisi-motor-controller-board"
+        },
+        {
+          "text":"GitHub firmware",
+          "url":"https://github.com/szolotykh/kinisi-motor-controller-firmware"
+        }
+      ],
+      "timeframe": "Seattle, WA. 2021-Present",
+      "image": "kinisi_controller.png",
+      "imageAlt":"model3"
+    },
     {
       "name":"Independent Project: Kinisi robotics platform",
       "discription": "Kinisi robotics platform is a mecanim wheels multipurpose platform. That can be used for variety of projects like telepresence robot or indoor goods transportations robots.",
