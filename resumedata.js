@@ -4,16 +4,20 @@ var ResumeSkils = [
     "skils": ["C/C++", "C#", "JavaScript", "Python", "Development on Linux"]
     },
     {
-      "category": "Networking",
-      "skils": ["Socket programming", "MQTT", "BACNet", "OPC UA", "REST", "WebSocket"]
+      "category": "AI",
+      "skils": ["AutoGen", "Vector Search", "RAG", "Real-Time API", "MCP", "Ollama"]
+    },
+    {
+      "category": "Connectivity",
+      "skils": ["Socket programming", "MQTT", "BACNet",  "Modbus", "SNMP", "OPC UA", "REST", "WebSocket" ]
     },
     {
       "category":"Applications",
-      "skils": ["Wireshark","Postman","Kubernetes","Fusion 360"]
+      "skils": ["Wireshark","Fusion 360"]
     },
     {
-      "category":"Azure",
-      "skils": ["Azure Functions","Service Bus","ADT","AKS","Deployment", "Pipelines"]
+      "category":"Azure & Cloud",
+      "skils": ["Azure ai Foundry", "Azure AI Search", "Azure Functions","Service Bus","ADT","AKS","IoT Hub","Deployment", "Pipelines", "Event Hubs"]
     },
     {
       "category":"Hardware",
@@ -35,8 +39,8 @@ var ResumeSkils = [
   
   var ResumeExperience = [
     {
-      "position":"SDE 2, Microsoft, Redmond, WA",
-      "discription": "Create new IoT solutions and integra existing into the Mictosoft ecosystem",
+      "position":"Senior Software Developer, Microsoft, Redmond, WA",
+      "discription": "Develop scalable IoT solutions and smart building management systems powered by AI. Design and implement intelligent building automation platforms that integrate with Microsoft ecosystem, focusing on predictive maintenance, energy optimization, and occupant.",
       "timeframe":"August 2020 - <span class='w3-tag w3-teal w3-round'>Present</span>"
     },
     {
