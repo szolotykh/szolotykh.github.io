@@ -75,6 +75,11 @@ var ResumeSkils = [
   
   var ResumeProjects = [
     {
+      "name":"Independent Project: Local Voice Assistant",
+      "discription": "Developed a privacy-focused local voice assistant using specialized AI models for speech-to-text, text-to-speech, and local LLMs. Features tool integration for extended functionality, conversation memory management, and real-time context visualization providing better understanding of conversation topics and referenced information. The system operates entirely offline, ensuring complete data privacy.",
+      "timeframe": "Seattle, WA. 2025-Present"
+    },
+    {
       "name":"Independent Project: Kinisi motor controller",
       "discription": "The Kinisi motor controller is engineered to regulate as many as four brushed DC motors. It utilizes an STM32 microcontroller at its core. The firmware of this device is designed to implement both velocity and position control systems.",
       "links":[
